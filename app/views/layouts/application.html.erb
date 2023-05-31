@@ -10,7 +10,15 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+   <div>
+    <%= render "shared/header" %>
+    <div class="notice-alert">
+      <p><%= notice %></p>
+      <p><%= alert %></p>
+    </div>
+  </div>
+    
     <%= yield %>
-  </body>
+
+    <%= render "shared/footer" %>
 </html>
