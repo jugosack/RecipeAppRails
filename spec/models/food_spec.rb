@@ -29,19 +29,19 @@ RSpec.describe Food, type: :model do
   it 'is not valid with a name longer than 50 characters' do
     food = Food.new(name: 'A' * 51, measurement_unit: 'Piece', price: 1.99, user: user)
     expect(food).not_to be_valid
-    expect(food.errors[:name]).to include("is too long (maximum is 50 characters)")
+    expect(food.errors[:name]).to include('is too long (maximum is 50 characters)')
   end
 
   it 'is not valid with a measurement unit longer than 20 characters' do
     food = Food.new(name: 'Apple', measurement_unit: 'A' * 21, price: 1.99, user: user)
     expect(food).not_to be_valid
-    expect(food.errors[:measurement_unit]).to include("is too long (maximum is 20 characters)")
+    expect(food.errors[:measurement_unit]).to include('is too long (maximum is 20 characters)')
   end
 
   it 'is not valid with a price less than 1' do
     food = Food.new(name: 'Apple', measurement_unit: 'Piece', price: 0, user: user)
     expect(food).not_to be_valid
-    expect(food.errors[:price]).to include("must be greater than or equal to 1")
+    expect(food.errors[:price]).to include('must be greater than or equal to 1')
   end
 
   it 'belongs to a user' do

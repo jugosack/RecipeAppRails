@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Recipe, type: :model do
-  let(:user) { User.create(email: 'test@example.com', password: 'password') }
+  let(:user) { User.create(email: 'test@example.com') }
 
   describe 'validations' do
     it 'is valid with valid attributes' do
@@ -68,7 +68,7 @@ RSpec.describe Recipe, type: :model do
       )
       recipe.user = user
       expect(recipe).not_to be_valid
-      expect(recipe.errors[:name]).to include("is too long (maximum is 50 characters)")
+      expect(recipe.errors[:name]).to include('is too long (maximum is 50 characters)')
     end
 
     it 'is not valid with a preparation time longer than 100 characters' do
@@ -80,7 +80,7 @@ RSpec.describe Recipe, type: :model do
       )
       recipe.user = user
       expect(recipe).not_to be_valid
-      expect(recipe.errors[:preparation_time]).to include("is too long (maximum is 100 characters)")
+      expect(recipe.errors[:preparation_time]).to include('is too long (maximum is 100 characters)')
     end
 
     it 'is not valid with a cooking time longer than 100 characters' do
@@ -92,7 +92,7 @@ RSpec.describe Recipe, type: :model do
       )
       recipe.user = user
       expect(recipe).not_to be_valid
-      expect(recipe.errors[:cooking_time]).to include("is too long (maximum is 100 characters)")
+      expect(recipe.errors[:cooking_time]).to include('is too long (maximum is 100 characters)')
     end
   end
 end
