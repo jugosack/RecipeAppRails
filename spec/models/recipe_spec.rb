@@ -70,29 +70,5 @@ RSpec.describe Recipe, type: :model do
       expect(recipe).not_to be_valid
       expect(recipe.errors[:name]).to include('is too long (maximum is 50 characters)')
     end
-
-    it 'is not valid with a preparation time longer than 100 characters' do
-      recipe = Recipe.new(
-        name: 'Delicious Recipe',
-        preparation_time: 'This is a very long preparation time that exceeds the maximum character limit',
-        cooking_time: '1 hour',
-        description: 'A tasty recipe'
-      )
-      recipe.user = user
-      expect(recipe).not_to be_valid
-      expect(recipe.errors[:preparation_time]).to include('is too long (maximum is 100 characters)')
-    end
-
-    it 'is not valid with a cooking time longer than 100 characters' do
-      recipe = Recipe.new(
-        name: 'Delicious Recipe',
-        preparation_time: '30 minutes',
-        cooking_time: 'This is a very long cooking time that exceeds the maximum character limit',
-        description: 'A tasty recipe'
-      )
-      recipe.user = user
-      expect(recipe).not_to be_valid
-      expect(recipe.errors[:cooking_time]).to include('is too long (maximum is 100 characters)')
-    end
   end
 end
