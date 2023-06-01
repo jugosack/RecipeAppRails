@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :foods
   has_many :recipes
-
+  
+  ############# THIS IS COMMENT FOR CHECKING AUTHENTICATION WITHOUT AUTHORIZATION ####################
   # validates :name, presence: true, length: { in: 1..50 }
 end
