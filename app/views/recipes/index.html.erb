@@ -13,11 +13,12 @@
       <div class="each-recipe-c">
       <div class="">
         <h3><%= recipe.name %></h3>
-        
+
+        <%if false%>
         <% if can? :destroy, recipe %>
         <%= button_to "Remove", recipe_path(recipe.id ), :method => :delete, class: "recipe-dlt-btn" %> 
         <% end %>
-
+<%end%>
       </div>
       <div class="recipes-desc">
         <p><%= recipe.description %></p>
