@@ -1,12 +1,12 @@
-<div class="recipe-show-c">
-  <h2 class="recipe-show-h2"><%= @recipe.name %></h2>
+<div class="show-recipe">
+  <h2 class="show-h2"><%= @recipe.name %></h2>
  
-  <div class="d-flex recipe-show-d1">
-    <p class="flex-grow-1 recipe-show-prep-t">Prepration time: <%= @recipe.preparation_time %></p>
-    <p class="recipe-show-publcT">Public</p>
+  <div class="recipe-show-d1">
+    <p class="recipe-show-prep-t">Prepration time: <%= @recipe.preparation_time %></p>
+    <p class="show-publc">Public</p>
 
     <% if current_user.id == @recipe.user.id %> 
-    <%= button_to recipe_path(@recipe.id), :method => :patch, class: "align-self-end public-btn" do %>
+    <%= button_to recipe_path(@recipe.id), :method => :patch, class: "public-btn" do %>
       <% if @recipe.public %>
         <i class="fa fa-toggle-on" style="font-size:48px;color:green"></i>
       <% else %>
@@ -16,21 +16,21 @@
     <% end %>
   </div>
 
-     <p class="show-cook-time">Cooking time: <%= @recipe.cooking_time %></p>
-     <p class="show-steps">Steps goes here...</p>
+     <p class="cook-time">Cooking time: <%= @recipe.cooking_time %></p>
+     <p class="steps">Steps goes here...</p>
 
-   <div class="d-flex justify-content-between">
+   <div class="content-between">
    <% if current_user.id == @recipe.user.id %> 
-   <button class='shopping-list-btn'>
-   <%= link_to 'Generate shooping list', shopping_lists_path, class: "shopping-list-btn-t" %>
+   <button class='shopping-list'>
+   <%= link_to 'Generate shooping list', shopping_lists_path, class: "shopping-list" %>
  </button> 
-   <button class='add-ingre-btn'>
-   <%= link_to 'Add ingredient', new_recipe_recipe_food_path(@recipe.id), class: "add-ingre-btn-t" %>
+   <button class='addingredients'>
+   <%= link_to 'Add ingredient', new_recipe_recipe_food_path(@recipe.id), class: "addingridients" %>
  </button> 
  <% end %>
    </div>
 
-   <table class="table m-5">
+   <table class="table">
     <thead>
       <tr>
         <th scope="col">Food</th>

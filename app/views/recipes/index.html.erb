@@ -1,27 +1,27 @@
-<div class="recips-c">
-  <h3 class="recipes-h3">All Recipes</h3>
+<div class="recips-show">
+  <h3 class="recipes-all">All Recipes</h3>
   <div class="d-flex justify-content-end m-3">
-    <button class='food-new-btn'>
+    <button class='new-but-food'>
       <%= link_to 'Add new recipe', new_recipe_path, class: "recipe-new-btn-t" %>
     </button> 
   </div>
 
   
-  <div class="recipes-col">
+  <div class="recipescol">
     <% @recipes.each do |recipe| %>
-      <%= link_to recipe_path(recipe.id), class: "each-recipe-link" do %>
-      <div class="each-recipe-c">
+      <%= link_to recipe_path(recipe.id), class: "recipe_link" do %>
+      <div class="each-recipe">
       <div class="">
         <h3><%= recipe.name %></h3>
 
         
         <% if can? :destroy, recipe %>
-        <%= button_to "Remove", recipe_path(recipe.id ), :method => :delete, class: "recipe-dlt-btn" %> 
+        <%= button_to "Remove", recipe_path(recipe.id ), :method => :delete, class: "recipe-delete" %> 
         <% end %>
  
 
       </div>
-      <div class="recipes-desc">
+      <div class="description_rec">
         <p><%= recipe.description %></p>
       </div>
       </div>
