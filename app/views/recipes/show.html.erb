@@ -6,6 +6,9 @@
     <span class="badge <%= @recipe.public ? 'bg-success' : 'bg-dark' %>">
       <%= @recipe.public ? 'Public' : 'Private' %>
     </span>
+<%#############################################%>
+    
+<%if false%>
     <% if current_user.id == @recipe.user.id %>
       <div class="toggle-container">
         <%= form_for @recipe, url: recipe_path(@recipe), method: :patch do |f| %>
@@ -16,6 +19,22 @@
         <% end %>
       </div>
     <% end %>
+
+   <%end%>
+<%#################################################%>
+
+     <% if current_user.id == @recipe.user.id %> 
+      <div class="toggle-container">
+        <%= button_to recipe_path(@recipe.id), :method => :patch, class: "align-self-end public-btn", style: "background-color: transparent; border: none;" do %>
+        <% if @recipe.public %>
+        <i class="fa fa-toggle-on" style="font-size:48px;color:green"></i>
+       <% else %>
+        <i class="fa fa-toggle-off" style="font-size:48px;color:green"></i>
+       <% end %>
+       <% end %>
+      </div>
+    <% end %>
+ 
   </div>
 
   <p class="cook-time">Cooking time: <%= @recipe.cooking_time %></p>
