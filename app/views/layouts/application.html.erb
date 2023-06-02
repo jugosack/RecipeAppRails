@@ -2,23 +2,96 @@
 <html>
   <head>
     <title>RecipeAppRails</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+      .login-container {
+        min-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+input[type=checkbox] {
+  display: none;
+}
+
+label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 30px;
+  height: 15px;
+  background: grey;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+
+label:after {
+  content: "";
+  position: absolute;
+  top: 1.25px;
+  left: 1.25px;
+  width: 12.5px;
+  height: 12.5px;
+  background: #fff;
+  border-radius: 100%;
+  transition: 0.3s;
+}
+
+input:checked + label {
+  background: #bada55;
+}
+
+input:checked + label:after {
+  left: calc(100% - 1.25px);
+  transform: translateX(-100%);
+}
+
+label:active:after {
+  width: 17.5px;
+}
+
+.toggle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+    </style>
   </head>
-
-   <div>
+  <body class="d-flex flex-column min-vh-100">
+  <% if user_signed_in? %>
     <%= render "shared/header" %>
-    <div class="notice-alert">
-      <p><%= notice %></p>
-      <p><%= alert %></p>
-    </div>
-  </div>
-    
-    <%= yield %>
+  <% end %>
+    <section class="container flex-grow-1">
+      <% if notice.present? %>
+        <div class="alert alert-success alert-sm">
+          <%= notice %>
+        </div>
+      <% end %>
 
+      <% if alert.present? %>
+        <div class="alert alert-danger alert-sm">
+          <%= alert %>
+        </div>
+      <% end %>
+      <% if user_signed_in? %>
+        <%= yield %>
+      <% else %>
+      <div class="login-container">
+        <%= yield %>
+      </div>
+      <% end %>
+    </section>
     <%= render "shared/footer" %>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  </body>
 </html>
