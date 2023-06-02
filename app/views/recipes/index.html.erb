@@ -6,23 +6,35 @@
     </button>
   </div>
 
-  <div class="recipescol">
-    <% @recipes.each do |recipe| %>
-      <%= link_to recipe_path(recipe.id), class: "recipe_link" do %>
-        <div class="each-recipe">
-          <div class="recipe-header">
-            <h3><%= recipe.name %></h3>
-            
+ <div class="recipescol">
+  <% @recipes.each do |recipe| %>
+    <div class="each-recipe">
+      <div class="row border pb-3 mb-3">
+        <div class="col-3">
+          <div class="d-flex flex-column">
+            <div class="recipe-name">
+              <h3><%= recipe.name %></h3>
+            </div>
+
             <% if can? :destroy, recipe %>
-              <%= button_to "Remove", recipe_path(recipe.id), method: :delete, class: "btn btn-danger recipe-delete" %>
+              <div class="recipe-actions">
+                <%= button_to "Remove", recipe_path(recipe.id), method: :delete, class: "btn btn-danger recipe-delete" %>
+              </div>
             <% end %>
           </div>
-          
-          <div class="description_rec">
+        </div>
+
+        <div class="col-9">
+          <div class="recipe-description">
             <p><%= recipe.description %></p>
           </div>
         </div>
-      <% end %>
-    <% end %>
-  </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+
+
 </div>

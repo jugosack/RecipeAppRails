@@ -3,34 +3,47 @@
 
   <div class="recipe-show-d1">
     <p class="recipe-show-prep-t">Preparation time: <%= @recipe.preparation_time %></p>
-    <span class="badge <%= @recipe.public ? 'bg-success' : 'bg-dark' %>">
-      <%= @recipe.public ? 'Public' : 'Private' %>
-    </span>
-    <% if current_user.id == @recipe.user.id %>
-      <div class="toggle-container">
-        <%= form_for @recipe, url: recipe_path(@recipe), method: :patch do |f| %>
-          <%= f.hidden_field :public, value: !@recipe.public %>
-          <input type="checkbox" id="switch" <%= @recipe.public ? 'checked' : '' %>/>
-          <label for="switch" class="toggle-label <%= @recipe.public ? 'active' : '' %>">Toggle</label>
-          <%= f.submit 'Toggle', class: 'btn btn-primary' %>
+
+
+   <div class="d-flex justify-content-end align-items-center">
+  <span class="badge <%= @recipe.public ? 'bg-success' : 'bg-dark' %>">
+    <%= @recipe.public ? 'Public' : 'Private' %>
+  </span>
+
+  <% if current_user.id == @recipe.user.id %>
+    <div class="toggle-container ml-2">
+      <%= button_to recipe_path(@recipe.id), method: :patch, class: "align-self-end public-btn", style: "background-color: transparent; border: none;" do %>
+        <% if @recipe.public %>
+          <i class="fa fa-toggle-on" style="font-size: 48px; color: green;"></i>
+        <% else %>
+          <i class="fa fa-toggle-off" style="font-size: 48px; color: green;"></i>
         <% end %>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
   </div>
 
   <p class="cook-time">Cooking time: <%= @recipe.cooking_time %></p>
   <p class="steps">Steps go here...</p>
 
-  <div class="content-between">
-    <% if current_user.id == @recipe.user.id %>
+
+ <div class="d-flex justify-content-between">
+  <% if current_user.id == @recipe.user.id %>
+    <div>
       <button class="btn btn-primary">
         <%= link_to 'Generate shopping list', shopping_lists_path, class: "text-white text-decoration-none" %>
       </button>
+    </div>
+
+    <div>
       <button class="btn btn-primary">
         <%= link_to 'Add ingredient', new_recipe_recipe_food_path(@recipe.id), class: "text-white text-decoration-none" %>
       </button>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
+</div>
+
 
   <table class="table">
     <thead>
@@ -47,12 +60,17 @@
           <td scope="row"><%= recipe_food.food.name %> </td>
           <td><%= recipe_food.quantity %><%= recipe_food.food.measurement_unit %> </td>
           <td> $<%= recipe_food.food.price * recipe_food.quantity %></td>
-          <td class="show-btns">
-            <% if can? :destroy, @recipe %>
-              <%= link_to "Modify", edit_recipe_recipe_food_path(@recipe.id, recipe_food.id), class: "show-modify-btn" %>
-              <%= button_to "Remove", recipe_recipe_food_path(@recipe.id, recipe_food.id), method: :delete, class: "show-dlt-btn" %>
-            <% end %>
-          </td>
+       <td class="show-btns">
+  <div class="d-flex">
+    <% if can? :destroy, @recipe %>
+      <%= link_to "Modify", edit_recipe_recipe_food_path(@recipe.id, recipe_food.id), class: "btn btn-primary mr-2", style: "margin-right: 5px;" %>
+      <%= button_to "Remove", recipe_recipe_food_path(@recipe.id, recipe_food.id), method: :delete, class: "btn btn-danger" %>
+    <% end %>
+  </div>
+</td>
+
+
+
         </tr>
       <% end %>
     </tbody>
