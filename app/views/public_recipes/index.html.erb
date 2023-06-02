@@ -4,7 +4,7 @@
     <div class="row border public-recipe-2c">
       <div class="col-3">
         <h3> <%= public_recipe[:name] %> </h3>
-        <p class="public-recipe-user"> By: <%= public_recipe[:email] %> </p>
+       <p class="public-recipe-user"> By: <%= User.find_by(email: public_recipe[:email]).name %> </p>
       </div>
       <div class="col-offset-1 col-8">
         <p class="text-decoration-none"> Total food items: <%= public_recipe[:food_items] %></p>
