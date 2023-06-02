@@ -13,7 +13,9 @@
         <div class="col-3">
           <div class="d-flex flex-column">
             <div class="recipe-name">
+             <%= link_to recipe_path(recipe.id), class: "recipe_link" do %>
               <h3><%= recipe.name %></h3>
+              <%end%>
             </div>
 
             <% if can? :destroy, recipe %>
