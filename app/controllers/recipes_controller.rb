@@ -24,9 +24,13 @@ class RecipesController < ApplicationController
 
   def destroy
     @recipe = Recipe.find(params[:id])
-    @recipe.destroy!
-    flash[:notice] = 'You have deleted the food!'
-    redirect_to recipes_path
+
+    if @recipe.destroy
+      redirect_to recipes_path, flash: { notice: 'You have deleted the recipe!' }
+    else
+      redirect_to recipes_path, flash: { alert: 'Could not delete recipe' }
+    end
+
   end
 
   def update
