@@ -16,12 +16,11 @@ class RecipeFoodsController < ApplicationController
 
   def destroy
     @recipe_food = RecipeFood.find(params[:id])
-        if @recipe_food.destroy
+    if @recipe_food.destroy
       redirect_to recipe_path(params[:recipe_id]), flash: { notice: 'You have deleted the recipe food!' }
     else
       redirect_to recipe_path(params[:recipe_id]), flash: { alert: 'Could not delete recipe' }
     end
-
   end
 
   def edit
@@ -35,8 +34,6 @@ class RecipeFoodsController < ApplicationController
     else
       redirect_to recipe_path(params[:recipe_id]), flash: { alert: 'Could not updated the recipe' }
     end
-
-
   end
 
   private

@@ -30,7 +30,6 @@ class RecipesController < ApplicationController
     else
       redirect_to recipes_path, flash: { alert: 'Could not delete recipe' }
     end
-
   end
 
   def update
