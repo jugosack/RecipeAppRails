@@ -100,24 +100,48 @@ In the project directory, you can run:
 - Twitter: [@Luk, A man](https://twitter.com/lukmanabdulka18)
 - LinkedIn: [Lukman Abdulkarim](https://www.linkedin.com/in/lukmanbaba/)
 
-## Future Feature
+<!-- FUTURE FEATURES -->
 
-- Implement user engagement features (likes, comments and ratings)
+## 🔭 Future Features <a name="future-features"></a>
 
-## Contributing 
+- **Edit Reccipes**
+- **Edit Price of ingredient**
+- **Edit ingredients**
+- **Edit shopping list**
+- **Track cooking times**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- CONTRIBUTING -->
+
+## 🤝 Contributing <a name="contributing"></a>
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/jugosack/RecipeAppRails/issues).
 
-## Show your support <a name="support"></a>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-If you like this project, please give it a star!
+<!-- SUPPORT -->
 
-## Acknowledgments 
+## ⭐️ Show your support <a name="support"></a>
 
-- Microverse 
+If you like this project please give a⭐️ and share with your friends.
 
-## License 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-This project is [MIT](./MIT.md) licensed.
+<!-- ACKNOWLEDGEMENTS -->
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+- Thanks to the Microverse team for the great curriculum.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- LICENSE -->
+
+## 📝 License <a name="license"></a>
+
+This project is [MIT](https://github.com/jugosack/RecipeAppRails/blob/development/LICENSE) licensed.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
