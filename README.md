@@ -22,9 +22,9 @@
 
 **Recipe App Rails** is web app that allow users to add food and create recipes, the app is built with Ruby on Rails and has a user authentication and an authorization system.
 
-<!-- # Deployment
+# Deployment
 
-[Recipe App Rails](https://recipe-app-5.onrender.com) is deployed at this [link](https://recipe-app-5.onrender.com) -->
+[Recipe App Rails](https://reciperails.onrender.com) is deployed at this [link](https://reciperails.onrender.com)
 
 ## Built With
 
