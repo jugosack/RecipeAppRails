@@ -22,24 +22,27 @@
 
 **Recipe App Rails** is web app that allow users to add food and create recipes, the app is built with Ruby on Rails and has a user authentication and an authorization system.
 
-# Deployment
+<!-- # Deployment
 
-[Recipe App Rails](https://recipe-app-5.onrender.com) is deployed at this [link](https://recipe-app-5.onrender.com)
+[Recipe App Rails](https://recipe-app-5.onrender.com) is deployed at this [link](https://recipe-app-5.onrender.com) -->
 
 ## Built With
 
 ### Tech Stack 
 
 <ul>
-  <li><a href="https://www.ruby-lang.org/en/news/2022/11/24/ruby-3-1-3-released/">Ruby 3.1</a></li>
+  <li><a href="https://www.ruby-lang.org/en/news/2022/11/24/ruby-3-1-3-released/">Ruby 3.0.1</a></li>
   <li><a href="https://rubyonrails.org/">Ruby on Rails 7</a></li>
-  <li><a href="https://www.postgresql.org/">PostgreSQL 15</a></li>
+  <li><a href="https://www.postgresql.org/">PostgreSQL 14</a></li>
 </ul>
 
 ### Key Features
 
-- User registration system (using Devise gem)
-- User authorization system to manage permissions and access control (using CanCanCan gem)
+- **Add new recipes**
+- **Delete recipes**
+- **Make recipe public or private**
+- **generate shopping list for missing ingredients in the inventory**
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Getting Started 
 
