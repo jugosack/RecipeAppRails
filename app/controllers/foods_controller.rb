@@ -20,9 +20,11 @@ class FoodsController < ApplicationController
 
   def destroy
     @food = Food.find(params[:id])
-    @food.destroy!
-    flash[:notice] = 'You have deleted the food!'
-    redirect_to foods_path
+    if @food.destroy
+      redirect_to foods_path, flash: { notice: 'You have deleted the food' }
+    else
+      redirect_to foods_path, flash: { alert: 'Could not delete food' }
+    end
   end
 
   private
