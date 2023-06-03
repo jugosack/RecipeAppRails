@@ -1,0 +1,42 @@
+<div class="recips-show">
+  <h3 class="recipes-all">All Recipes</h3>
+  <div class="d-flex justify-content-end m-3">
+    <button class="btn btn-outline-primary">
+      <%= link_to 'Add new recipe', new_recipe_path, class: "text-decoration-none" %>
+    </button>
+  </div>
+
+ <div class="recipescol">
+  <% @recipes.each do |recipe| %>
+    <div class="each-recipe">
+      <div class="row border pb-3 mb-3">
+        <div class="col-3">
+          <div class="d-flex flex-column">
+            <div class="recipe-name">
+             <%= link_to recipe_path(recipe.id), class: "recipe_link" do %>
+              <h3><%= recipe.name %></h3>
+              <%end%>
+            </div>
+
+            <% if can? :destroy, recipe %>
+              <div class="recipe-actions">
+                <%= button_to "Remove", recipe_path(recipe.id), method: :delete, class: "btn btn-danger recipe-delete" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="col-9">
+          <div class="recipe-description">
+            <p><%= recipe.description %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+
+
+</div>
