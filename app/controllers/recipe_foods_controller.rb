@@ -30,9 +30,13 @@ class RecipeFoodsController < ApplicationController
 
   def update
     @recipe_food = RecipeFood.find(params[:id])
-    @recipe_food.update(edit_recipe_food_params)
-    flash[:notice] = 'You have updated the recipe food successfully'
-    redirect_to recipe_path(params[:recipe_id])
+    if @recipe_food.update(edit_recipe_food_params)
+      redirect_to recipe_path(params[:recipe_id]), flash: { notice: 'You have updated the recipe food successfully' }
+    else
+      redirect_to recipe_path(params[:recipe_id]), flash: { alert: 'Could not updated the recipe' }
+    end
+
+
   end
 
   private
